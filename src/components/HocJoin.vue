@@ -4,7 +4,7 @@
       class="form-container d-flex flex-column justify-content-center mt-5 mb-3"
     >
       <div>
-        <p class="mb-1 discription" style="text-align: center; font-size: 4vh">
+        <p class="mb-1 discription" style="text-align: center; font-size: 3vw">
           Join HOC Discord server.
         </p>
       </div>
@@ -130,7 +130,7 @@ export default {
   background-color: #2c2f33;
   border: solid 2px;
   color: #738adb;
-  width: 15%;
+  /* width: 15%; */
   margin-bottom: 2%;
 }
 .btn:focus {
