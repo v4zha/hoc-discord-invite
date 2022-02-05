@@ -5,3 +5,4 @@ const app=express();
 app.use(serveStatic(path.join(__dirname,'dist')));
 const port=process.env.port||80;
 app.listen(port);
+console.log("server started running on "+port);
