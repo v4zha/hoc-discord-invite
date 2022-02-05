@@ -34,7 +34,7 @@
           <b-form-input
             class="form-control"
             v-model="name"
-            placeholder="Eg: UrName :)"
+            placeholder="Eg: UrName : )"
             id="name"
           ></b-form-input>
           <label class="discription" style="margin: 1%" for="name">Email</label>
