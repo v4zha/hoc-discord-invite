@@ -19,15 +19,6 @@
             placeholder="Eg: dev_j1#6406"
             id="user-name"
           ></b-form-input>
-          <label class="discription" style="margin: 1%" for="discord-id"
-            >Discord ID</label
-          >
-           <b-form-input
-            class="form-control"
-            v-model="discord_id"
-            placeholder="Eg:939016787092189255"
-            id="discord_name"
-          ></b-form-input>
           <label class="discription" style="margin: 1%" for="name"
             >Name</label
           >
