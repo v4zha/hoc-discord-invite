@@ -40,7 +40,7 @@
       <div>
         <b-button
           class="btn btn-raised shadow"
-          v-on:click="submit_form(uname, discord_id, name, e_mail)"
+          v-on:click="submit_form(uname, name, e_mail)"
           type="button"
           >submit</b-button
         >
@@ -83,8 +83,8 @@ export default {
     };
   },
   methods: {
-    submit_form: function submit_form(uname, discord_id, name, email) {
-      if (uname == "" || discord_id == "" || name == "" || email == "") {
+    submit_form: function submit_form(uname, name, email) {
+      if (uname == "" || name == "" || email == "") {
         return;
       }
       this.Hidden = true;
@@ -97,7 +97,6 @@ export default {
       };
       let data = JSON.stringify({
         uname: uname,
-        discord_id: discord_id,
         name: name,
         e_mail: email,
       });
