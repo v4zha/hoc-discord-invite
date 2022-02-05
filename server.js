@@ -3,6 +3,6 @@ const serveStatic = require('serve-static');
 const path=require('path');
 const app=express();
 app.use(serveStatic(path.join(__dirname,'dist')));
-const port=process.env.port||80;
+const port=process.env.PORT;
 app.listen(port);
 console.log("server started running on "+port);
