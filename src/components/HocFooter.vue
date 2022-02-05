@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <footer class="footer-text">
-      <p>IEEE 2022</p>
+      <p></p>
     </footer>
   </div>
 </template>
@@ -12,8 +12,8 @@ export default {
 </script>
 <style scoped>
 .footer {
-  position: absolute;
-  bottom: 0%;
+  /* position: absolute; */
+  /* bottom: 0%; */
   width: 100%;
   background-color: #23272a;
 }

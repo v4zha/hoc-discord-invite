@@ -1,5 +1,5 @@
 <template>
-  <div  v-if="Hidden==false" class="d-flex justify-content-center">
+  <div v-if="Hidden == false" class="d-flex justify-content-center">
     <div
       class="form-container d-flex flex-column justify-content-center mt-5 mb-3"
     >
@@ -22,18 +22,34 @@
           <label class="discription" style="margin: 1%" for="discord-id"
             >Discord ID</label
           >
-          <b-form-input
+           <b-form-input
             class="form-control"
             v-model="discord_id"
-            placeholder="Eg: 159985870458322944"
-            id="discord-id"
+            placeholder="Eg:939016787092189255"
+            id="discord_name"
+          ></b-form-input>
+          <label class="discription" style="margin: 1%" for="name"
+            >Name</label
+          >
+          <b-form-input
+            class="form-control"
+            v-model="name"
+            placeholder="Eg: UrName :)"
+            id="name"
+          ></b-form-input>
+          <label class="discription" style="margin: 1%" for="name">Email</label>
+          <b-form-input
+            class="form-control"
+            v-model="e_mail"
+            placeholder="Eg:musk@mail.com"
+            id="e_mail"
           ></b-form-input>
         </b-form>
       </div>
       <div>
         <b-button
           class="btn btn-raised shadow"
-          v-on:click="submit_form(uname, discord_id)"
+          v-on:click="submit_form(uname, discord_id, name, e_mail)"
           type="button"
           >submit</b-button
         >
@@ -45,18 +61,18 @@
           alt="discord logo"
         />
       </div>
-    </div>    
-  </div>
-  <div v-if="Hidden==true" class="loading">
-      <h1 class="header">Loading please Wait :)</h1>
-      <div>
-        <img
-          class="discord_logo"
-          src="../assets/discord_logo.svg"
-          alt="discord logo"
-        />
-      </div>
     </div>
+  </div>
+  <div v-if="Hidden == true" class="loading">
+    <h1 class="header">Loading please Wait :)</h1>
+    <div>
+      <img
+        class="discord_logo"
+        src="../assets/discord_logo.svg"
+        alt="discord logo"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -70,15 +86,17 @@ export default {
     return {
       uname: "",
       discord_id: "",
-      Hidden:false,
+      name: "",
+      e_mail: "",
+      Hidden: false,
     };
   },
   methods: {
-    submit_form: function submit_form(uname, discord_id) {
-      if(uname=="" || discord_id==""){
+    submit_form: function submit_form(uname, discord_id, name, email) {
+      if (uname == "" || discord_id == "" || name == "" || email == "") {
         return;
       }
-      this.Hidden=true;
+      this.Hidden = true;
       const axios = require("axios");
       const url = "https://discord-db-api.herokuapp.com/add_data";
       const config = {
@@ -86,7 +104,12 @@ export default {
           "Content-Type": "application/json",
         },
       };
-      let data = JSON.stringify({ uname: uname, discord_id: discord_id });
+      let data = JSON.stringify({
+        uname: uname,
+        discord_id: discord_id,
+        name: name,
+        e_mail: email,
+      });
       axios
         .post(url, data, config)
         .then((res) => invite_usr(res.data.result))
@@ -140,7 +163,7 @@ export default {
   padding-bottom: 1%;
   background-color: #2c2f33;
 }
-.loading{
+.loading {
   margin-top: 10%;
 }
 </style>
