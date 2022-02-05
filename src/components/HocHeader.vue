@@ -13,7 +13,7 @@ export default {
   name: "HocHeader",
 };
 </script>
-<style scoped>
+<style>
 .header {
   /* font-family: ; */
   color: #738adb;

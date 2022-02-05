@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-center">
+  <div  v-if="Hidden==false" class="d-flex justify-content-center">
     <div
       class="form-container d-flex flex-column justify-content-center mt-5 mb-3"
     >
@@ -45,8 +45,18 @@
           alt="discord logo"
         />
       </div>
-    </div>
+    </div>    
   </div>
+  <div v-if="Hidden==true" class="loading">
+      <h1 class="header">Loading please Wait :)</h1>
+      <div>
+        <img
+          class="discord_logo"
+          src="../assets/discord_logo.svg"
+          alt="discord logo"
+        />
+      </div>
+    </div>
 </template>
 
 <script>
@@ -60,10 +70,15 @@ export default {
     return {
       uname: "",
       discord_id: "",
+      Hidden:false,
     };
   },
   methods: {
     submit_form: function submit_form(uname, discord_id) {
+      if(uname=="" || discord_id==""){
+        return;
+      }
+      this.Hidden=true;
       const axios = require("axios");
       const url = "https://discord-db-api.herokuapp.com/add_data";
       const config = {
@@ -124,5 +139,8 @@ export default {
   padding-top: 2%;
   padding-bottom: 1%;
   background-color: #2c2f33;
+}
+.loading{
+  margin-top: 10%;
 }
 </style>
