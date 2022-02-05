@@ -11,7 +11,7 @@
       <div class="mb-4">
         <b-form class="row d-flex justify-content-center">
           <label class="discription" style="margin: 1%" for="user-name"
-            >User Name</label
+            >Discord User Name</label
           >
           <b-form-input
             class="form-control"
