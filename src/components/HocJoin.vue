@@ -70,6 +70,12 @@
 function invite_usr(url) {
   window.location.replace(url);
 }
+
+function parse_uname(uname){
+  var res=uname.toLowerCase();
+  return res.replace(/\s+/g, '');
+}
+
 function check_user(username){
     let pattern=/#\d{4}$/;
     return pattern.test(username)
@@ -105,7 +111,7 @@ export default {
         },
       };
       let data = JSON.stringify({
-        uname: uname,
+        uname: parse_uname(uname),
         name: name,
         e_mail: email,
       });
