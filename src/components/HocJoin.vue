@@ -5,7 +5,7 @@
     >
       <div>
         <p class="mb-1 discription" style="text-align: center; font-size: 3vw">
-          Join HOC Discord server.
+          {{discription}}
         </p>
       </div>
       <div class="mb-4">
@@ -17,7 +17,7 @@
             class="form-control"
             v-model="uname"
             placeholder="Eg: dev_j1#6406"
-            id="user-name"
+            id="user-name"          
           ></b-form-input>
           <label class="discription" style="margin: 1%" for="name"
             >Name</label
@@ -70,7 +70,10 @@
 function invite_usr(url) {
   window.location.replace(url);
 }
-
+function check_user(username){
+    let pattern=/#\d{4}$/;
+    return pattern.test(username)
+}
 export default {
   name: "HocJoin",
   data() {
@@ -80,11 +83,17 @@ export default {
       name: "",
       e_mail: "",
       Hidden: false,
+      discription:"Join HOC Discord server.",
     };
   },
   methods: {
     submit_form: function submit_form(uname, name, email) {
       if (uname == "" || name == "" || email == "") {
+        this.discription="Enter your details";
+        return;
+      }
+      else if(check_user(uname)==false){
+        this.discription="Enter a valid user name. Eg: name#1234";
         return;
       }
       this.Hidden = true;
@@ -104,7 +113,7 @@ export default {
         .post(url, data, config)
         .then((res) => invite_usr(res.data.result))
         .catch((err) => console.log(err));
-    },
+    }
   },
 };
 </script>
